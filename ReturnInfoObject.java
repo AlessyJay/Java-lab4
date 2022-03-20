@@ -1,23 +1,16 @@
-class Main {
-    public static void main(String[] args) {
-
-    }
-}
-
 class Car {
     private String Brand, Model, Colour;
-    private int Year;
-    private int Quantity;
+    private int Year, Quantity;
     private double Price;
 
-    public Car(String carBrand, String carModel, String carColour,
-            int carYear, int carQuantity, double carPrice) {
-        carBrand = Brand;
-        carModel = Model;
-        carColour = Colour;
-        carYear = Year;
-        carQuantity = Quantity;
-        carPrice = Price;
+    public Car(String Brand, String Model, String Colour,
+            int Year, int Quantity, double Price) {
+        this.Brand = Brand;
+        this.Model = Model;
+        this.Colour = Colour;
+        this.Year = Year;
+        this.Quantity = Quantity;
+        this.Price = Price;
     }
 
     public void Delivery(int count) {
@@ -29,7 +22,7 @@ class Car {
     }
 
     public String getBrand() {
-        return this.Brand;
+        return Brand;
     }
 
     public void setBrand(String Brand) {
@@ -37,7 +30,7 @@ class Car {
     }
 
     public String getModel() {
-        return this.Model;
+        return Model;
     }
 
     public void setModel(String Model) {
@@ -45,7 +38,7 @@ class Car {
     }
 
     public String getColour() {
-        return this.Colour;
+        return Colour;
     }
 
     public void setColour(String Colour) {
@@ -53,7 +46,7 @@ class Car {
     }
 
     public int getYear() {
-        return this.Year;
+        return Year;
     }
 
     public void setYear(int Year) {
@@ -61,7 +54,7 @@ class Car {
     }
 
     public int getQuantity() {
-        return this.Quantity;
+        return Quantity;
     }
 
     public void setQuantity(int Quantity) {
@@ -69,11 +62,35 @@ class Car {
     }
 
     public double getPrice() {
-        return this.Price;
+        return Price;
     }
 
     public void setPrice(double Price) {
         this.Price = Price;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Car: " +
+                "Brand: %s, " +
+                "Model: %s, " +
+                "Colour: %s, " +
+                "Year: %s, " +
+                "Quantity: %s, " +
+                "Price: %s",
+                Brand, Model, Colour,
+                Year, Quantity, Price);
+    }
+}
+
+class showCar {
+    public static void main(String[] args) {
+        Car car = new Car("Toyota", "Yaris", "Black", 2017, 10, 30_000);
+
+        System.out.println(car.toString());
+        car.Sell(7);
+        System.out.println(car.getColour());
+        car.setColour("White");
+        System.out.println(car.toString());
+    }
 }
